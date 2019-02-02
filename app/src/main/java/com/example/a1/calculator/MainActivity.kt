@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val btnminus = findViewById<Button>(R.id.btnminus)
         val button4 = findViewById<Button>(R.id.button4)
         val btndiv=findViewById<Button>(R.id.btndiv)
-
+        // Hello
         btnadd.setOnClickListener {
             val q: String = edit1.text.toString()
             val w: String = edit2.text.toString()
