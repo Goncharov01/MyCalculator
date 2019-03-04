@@ -1,4 +1,5 @@
 package com.example.a1.myalculator
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,74 +13,61 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val edit1 = findViewById<EditText>(R.id.edit1)
-        val edit2 = findViewById<EditText>(R.id.edit2)
+        val numberFieldFirst = findViewById<EditText>(R.id.numberFieldFirst)
+        val numberFieldSecond = findViewById<EditText>(R.id.numberFieldSecond)
         val btnadd = findViewById<Button>(R.id.btnadd)
         val result = findViewById<TextView>(R.id.result)
         val btnminus = findViewById<Button>(R.id.btnminus)
-        val button4 = findViewById<Button>(R.id.button4)
-        val btndiv=findViewById<Button>(R.id.btndiv)
+        val btnmulti = findViewById<Button>(R.id.btnmulti)
+        val btndiv = findViewById<Button>(R.id.btndiv)
 
         btnadd.setOnClickListener {
-            val q: String = edit1.text.toString()
-            val w: String = edit2.text.toString()
+            val firstNumber: String = numberFieldFirst.text.toString()
+            val secondNumber: String = numberFieldSecond.text.toString()
 
-            if (edit1.text.isEmpty() || edit2.text.isEmpty()) {
+            if (numberFieldFirst.text.isEmpty() || numberFieldSecond.text.isEmpty()) {
                 Toast.makeText(applicationContext, "Enter The Value", Toast.LENGTH_SHORT).show()
             } else {
-                val c = q.toInt()
-                val d = w.toInt()
-                val e = c + d
-                result.setText(e.toString())
+                result.text = (firstNumber.toInt() + secondNumber.toInt()).toString()
             }
         }
 
         btnminus.setOnClickListener {
-            val q: String = edit1.text.toString()
-            val w: String = edit2.text.toString()
+            val firstNumber: String = numberFieldFirst.text.toString()
+            val secondNumber: String = numberFieldSecond.text.toString()
 
-            if (edit1.text.isEmpty() || edit2.text.isEmpty()) {
+            if (numberFieldFirst.text.isEmpty() || numberFieldSecond.text.isEmpty()) {
                 Toast.makeText(applicationContext, "Enter the Value", Toast.LENGTH_SHORT).show()
             } else {
-                val e = q.toInt()
-                val r = w.toInt()
-                val t = e - r
-                result.setText(t.toString())
+                result.text = (firstNumber.toInt() - secondNumber.toInt()).toString()
             }
-
         }
-        button4.setOnClickListener {
-            val q: String = edit1.text.toString()
-            val w: String = edit2.text.toString()
 
-            if (edit1.text.isEmpty() || edit2.text.isEmpty()) {
+        btnmulti.setOnClickListener {
+            val firstNumber: String = numberFieldFirst.text.toString()
+            val secondNumber: String = numberFieldSecond.text.toString()
+
+            if (numberFieldFirst.text.isEmpty() || numberFieldSecond.text.isEmpty()) {
                 Toast.makeText(applicationContext, "Enter the Value", Toast.LENGTH_SHORT).show()
             } else {
-                val e = q.toInt()
-                val r = w.toInt()
-                val t = e * r
-                result.setText(t.toString())
+                result.text = (firstNumber.toInt() * secondNumber.toInt()).toString()
             }
 
         }
 
-        btndiv.setOnClickListener{
-            val q: String = edit1.text.toString()
-            val w: String = edit2.text.toString()
+        btndiv.setOnClickListener {
+            val firstNumber: String = numberFieldFirst.text.toString()
+            val secondNumber: String = numberFieldSecond.text.toString()
 
-
-
-
-            if (edit1.text.isEmpty() || edit2.text.isEmpty()) {
+            if (numberFieldFirst.text.isEmpty() || numberFieldSecond.text.isEmpty()) {
                 Toast.makeText(applicationContext, "Enter the Value", Toast.LENGTH_SHORT).show()
             } else {
-                if(w.toInt() !=0){
-                    val e = q.toInt()
-                    val r = w.toInt()
-                    val t = e / r
-                    result.setText(t.toString())
-                }  else {Toast.makeText(applicationContext,"It is impossible to divide by zero", Toast.LENGTH_LONG).show()
-                } }
+                if (secondNumber.toInt() != 0) {
+                    result.text = (firstNumber.toInt() * secondNumber.toInt()).toString()
+                } else {
+                    Toast.makeText(applicationContext, "It is impossible to divide by zero", Toast.LENGTH_LONG).show()
+                }
+            }
         }
 
     }
